@@ -15,4 +15,4 @@ The server accepts HTTP requests with methods GET, POST, DELETE. The methods are
 The POST method is used to create objects via DiffFusion methods. Objects are labelled with an identifier (*alias*). Subsequent GET method requests retrieve the object. Requests with DELETE method allow deleting objects in the repository.
 
 Details of requests are stored in the request header and the request body. The request body is interpreted as JSON format. Results from requests are stored in the response body. Results are also interpreted as JSON format.
- 
+

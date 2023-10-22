@@ -3,6 +3,6 @@ using Test
 
 @testset "Test server methods." begin
 
-    # Write your tests here.
+    include("router.jl")
 
 end
