@@ -6,6 +6,7 @@ An info string with API details.
 """
 const _INFO_STRING =
 """
+<!DOCTYPE html>
 <html>
 <body>
 <h1>DiffFusionServer.jl API</h1>

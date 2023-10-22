@@ -11,7 +11,7 @@ using Test
     server = HTTP.serve!(router, Sockets.localhost, DiffFusionServer._DEFAULT_PORT)
     #
     resp = HTTP.get("http://localhost:2024/api/v1/info")
-    body = JSON3.read(resp.body)
+    body = String(resp.body)
     # println(body)
     @test body == DiffFusionServer._INFO_STRING
     resp = HTTP.get("http://localhost:2024/api/v1/aliases")
