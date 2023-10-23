@@ -12,5 +12,7 @@ function initial_repository()
     d["NoPathInterpolation"] = DiffFusion.NoPathInterpolation
     d["LinearPathInterpolation"] = DiffFusion.LinearPathInterpolation
     #
+    d["SobolBrownianIncrements"] = DiffFusion.sobol_brownian_increments
+    #
     return d
 end
