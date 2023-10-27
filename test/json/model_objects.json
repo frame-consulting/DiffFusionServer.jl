@@ -1,0 +1,435 @@
+[
+    {
+        "typename": "DiffFusion.Context",
+        "constructor": "Context",
+        "alias": "ct/STD",
+        "numeraire": {
+            "typename": "DiffFusion.NumeraireEntry",
+            "constructor": "NumeraireEntry",
+            "context_key": "USD",
+            "model_alias": "md/USD",
+            "termstructure_alias": {
+                "<empty_key>": "yc/USD:SOFR"
+            }
+        },
+        "rates": {
+            "USD": {
+                "typename": "DiffFusion.RatesEntry",
+                "constructor": "RatesEntry",
+                "context_key": "USD",
+                "model_alias": "md/USD",
+                "termstructure_alias": {
+                    "<empty_key>": "yc/USD:SOFR",
+                    "SOFR": "yc/USD:SOFR",
+                    "LIB3M": "yc/USD:LIB3M"
+                }
+            },
+            "EUR": {
+                "typename": "DiffFusion.RatesEntry",
+                "constructor": "RatesEntry",
+                "context_key": "EUR",
+                "model_alias": "md/EUR",
+                "termstructure_alias": {
+                    "<empty_key>": "yc/EUR:XCCY",
+                    "XCCY": "yc/EUR:XCCY",
+                    "ESTR": "yc/EUR:ESTR",
+                    "EURIBOR6M": "yc/EUR:EURIBOR6M"
+                }
+            },
+            "GBP": {
+                "typename": "DiffFusion.RatesEntry",
+                "constructor": "RatesEntry",
+                "context_key": "GBP",
+                "model_alias": "md/GBP",
+                "termstructure_alias": {
+                    "<empty_key>": "yc/GBP:XCCY",
+                    "XCCY": "yc/GBP:XCCY",
+                    "SONIA": "yc/GBP:SONIA"
+                }
+            }
+        },
+        "assets": {
+            "EUR-USD": {
+                "typename": "DiffFusion.AssetEntry",
+                "constructor": "AssetEntry",
+                "context_key": "EUR-USD",
+                "asset_model_alias": "md/EUR-USD",
+                "domestic_model_alias": "md/USD",
+                "foreign_model_alias": "md/EUR",
+                "asset_spot_alias": "pa/EUR-USD",
+                "domestic_termstructure_alias": {
+                    "<empty_key>": "yc/USD:SOFR"
+                },
+                "foreign_termstructure_alias": {
+                    "<empty_key>": "yc/EUR:XCCY"
+                }
+            },
+            "GBP-USD": {
+                "typename": "DiffFusion.AssetEntry",
+                "constructor": "AssetEntry",
+                "context_key": "GBP-USD",
+                "asset_model_alias": "md/GBP-USD",
+                "domestic_model_alias": "md/USD",
+                "foreign_model_alias": "md/GBP",
+                "asset_spot_alias": "pa/GBP-USD",
+                "domestic_termstructure_alias": {
+                    "<empty_key>": "yc/USD:SOFR"
+                },
+                "foreign_termstructure_alias": {
+                    "<empty_key>": "yc/GBP:XCCY"
+                }
+            }
+        },
+        "forward_indices": {
+            "EUHICP": {
+                "typename": "DiffFusion.ForwardIndexEntry",
+                "constructor": "ForwardIndexEntry",
+                "context_key": "EUHICP",
+                "asset_model_alias": "md/EUHICP",
+                "domestic_model_alias": "md/USD",
+                "foreign_model_alias": "md/EUHICP-RR",
+                "forward_index_alias": "pa/EUHICP"
+            }
+        },
+        "future_indices": {
+            "NIK": {
+                "typename": "DiffFusion.FutureIndexEntry",
+                "constructor": "FutureIndexEntry",
+                "context_key": "NIK",
+                "future_model_alias": "md/NIK-FUT",
+                "future_index_alias": "pa/NIK-FUT"
+            }
+        },
+        "fixings": {
+            "USD:SOFR": {
+                "typename": "DiffFusion.FixingEntry",
+                "constructor": "FixingEntry",
+                "context_key": "USD:SOFR",
+                "termstructure_alias": "pa/USD:SOFR"
+            },
+            "USD:LIB3M": {
+                "typename": "DiffFusion.FixingEntry",
+                "constructor": "FixingEntry",
+                "context_key": "USD:LIB3M",
+                "termstructure_alias": "pa/USD:LIB3M"
+            },
+            "EUR:ESTR": {
+                "typename": "DiffFusion.FixingEntry",
+                "constructor": "FixingEntry",
+                "context_key": "EUR:ESTR",
+                "termstructure_alias": "pa/EUR:ESTR"
+            },
+            "EUR:EURIBOR6M": {
+                "typename": "DiffFusion.FixingEntry",
+                "constructor": "FixingEntry",
+                "context_key": "EUR:EURIBOR6M",
+                "termstructure_alias": "pa/EUR:EURIBOR6M"
+            },
+            "GBP:SONIA": {
+                "typename": "DiffFusion.FixingEntry",
+                "constructor": "FixingEntry",
+                "context_key": "GBP:SONIA",
+                "termstructure_alias": "pa/GBP:SONIA"
+            },
+            "EUR-USD": {
+                "typename": "DiffFusion.FixingEntry",
+                "constructor": "FixingEntry",
+                "context_key": "EUR-USD",
+                "termstructure_alias": "pa/EUR-USD"
+            },
+            "GBP-USD": {
+                "typename": "DiffFusion.FixingEntry",
+                "constructor": "FixingEntry",
+                "context_key": "GBP-USD",
+                "termstructure_alias": "pa/GBP-USD"
+            }
+        }
+    },
+    {
+        "typename": "DiffFusion.CorrelationHolder",
+        "constructor": "CorrelationHolder",
+        "alias": "ch/STD",
+        "correlations": {
+            "EUR_f_1<>USD_f_1": 0.3,
+            "EUR-USD_x<>USD_f_1": -0.2,
+            "EUR-USD_x<>EUR_f_1": -0.3,
+            "GBP_f_1<>USD_f_1": 0.3,
+            "GBP-USD_x<>USD_f_1": -0.2,
+            "GBP-USD_x<>GBP_f_1": -0.3,
+            "EUR_f_1<>GBP_f_1": 0.3
+        },
+        "sep": "<>"
+    },
+    {
+        "typename": "DiffFusion.LognormalAssetModel",
+        "constructor": "lognormal_asset_model",
+        "alias": "md/EUR-USD",
+        "sigma_x": {
+            "typename": "DiffFusion.BackwardFlatVolatility",
+            "constructor": "backward_flat_volatility",
+            "alias": "vol/EUR-USD",
+            "times": [
+                0
+            ],
+            "values": [
+                0.15
+            ]
+        },
+        "correlation_holder": "{ch/STD}",
+        "quanto_model": "nothing"
+    },
+    {
+        "typename": "DiffFusion.LognormalAssetModel",
+        "constructor": "lognormal_asset_model",
+        "alias": "md/GBP-USD",
+        "sigma_x": {
+            "typename": "DiffFusion.BackwardFlatVolatility",
+            "constructor": "backward_flat_volatility",
+            "alias": "vol/GBP-USD",
+            "times": [
+                0
+            ],
+            "values": [
+                0.12
+            ]
+        },
+        "correlation_holder": "{ch/STD}",
+        "quanto_model": "nothing"
+    },
+    {
+        "typename": "DiffFusion.GaussianHjmModel",
+        "constructor": "gaussian_hjm_model",
+        "alias": "md/USD",
+        "delta": {
+            "typename": "DiffFusion.BackwardFlatParameter",
+            "constructor": "flat_parameter",
+            "alias": "",
+            "value": 0
+        },
+        "chi": {
+            "typename": "DiffFusion.BackwardFlatParameter",
+            "constructor": "flat_parameter",
+            "alias": "",
+            "value": 0.03
+        },
+        "sigma_f": {
+            "typename": "DiffFusion.BackwardFlatVolatility",
+            "constructor": "flat_volatility",
+            "alias": "",
+            "value": 0.0075
+        },
+        "correlation_holder": "{ch/STD}",
+        "quanto_model": "nothing"
+    },
+    {
+        "typename": "DiffFusion.GaussianHjmModel",
+        "constructor": "gaussian_hjm_model",
+        "alias": "md/EUR",
+        "delta": {
+            "typename": "DiffFusion.BackwardFlatParameter",
+            "constructor": "flat_parameter",
+            "alias": "",
+            "value": 0
+        },
+        "chi": {
+            "typename": "DiffFusion.BackwardFlatParameter",
+            "constructor": "flat_parameter",
+            "alias": "",
+            "value": 0.03
+        },
+        "sigma_f": {
+            "typename": "DiffFusion.BackwardFlatVolatility",
+            "constructor": "flat_volatility",
+            "alias": "",
+            "value": 0.0065
+        },
+        "correlation_holder": "{ch/STD}",
+        "quanto_model": "{md/EUR-USD}"
+    },
+    {
+        "typename": "DiffFusion.GaussianHjmModel",
+        "constructor": "gaussian_hjm_model",
+        "alias": "md/GBP",
+        "delta": {
+            "typename": "DiffFusion.BackwardFlatParameter",
+            "constructor": "flat_parameter",
+            "alias": "",
+            "value": 0
+        },
+        "chi": {
+            "typename": "DiffFusion.BackwardFlatParameter",
+            "constructor": "flat_parameter",
+            "alias": "",
+            "value": 0.03
+        },
+        "sigma_f": {
+            "typename": "DiffFusion.BackwardFlatVolatility",
+            "constructor": "flat_volatility",
+            "alias": "",
+            "value": 0.0055
+        },
+        "correlation_holder": "{ch/STD}",
+        "quanto_model": "{md/GBP-USD}"
+    },
+    {
+        "typename": "DiffFusion.SimpleModel",
+        "constructor": "simple_model",
+        "alias": "md/G3",
+        "models": [
+            "{md/USD}",
+            "{md/EUR}",
+            "{md/GBP}",
+            "{md/EUR-USD}",
+            "{md/GBP-USD}"
+        ]
+    },
+    {
+        "typename": "DiffFusion.FlatForward",
+        "constructor": "FlatForward",
+        "alias": "yc/USD:SOFR",
+        "rate": 0.0358
+    },
+    {
+        "typename": "DiffFusion.FlatForward",
+        "constructor": "FlatForward",
+        "alias": "yc/USD:LIB3M",
+        "rate": 0.0374
+    },
+    {
+        "typename": "DiffFusion.FlatForward",
+        "constructor": "FlatForward",
+        "alias": "yc/EUR:ESTR",
+        "rate": 0.0297
+    },
+    {
+        "typename": "DiffFusion.FlatForward",
+        "constructor": "FlatForward",
+        "alias": "yc/EUR:XCCY",
+        "rate": 0.0293
+    },
+    {
+        "typename": "DiffFusion.FlatForward",
+        "constructor": "FlatForward",
+        "alias": "yc/EUR:EURIBOR6M",
+        "rate": 0.0316
+    },
+    {
+        "typename": "DiffFusion.FlatForward",
+        "constructor": "FlatForward",
+        "alias": "yc/GBP:SONIA",
+        "rate": 0.0371
+    },
+    {
+        "typename": "DiffFusion.FlatForward",
+        "constructor": "FlatForward",
+        "alias": "yc/GBP:XCCY",
+        "rate": 0.0376
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/USD:SOFR",
+        "times": [
+            0
+        ],
+        "values": [
+            0.0455
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/USD:LIB3M",
+        "times": [
+            0
+        ],
+        "values": [
+            0.0486
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/EUR:ESTR",
+        "times": [
+            0
+        ],
+        "values": [
+            0.024
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/EUR:EURIBOR6M",
+        "times": [
+            0
+        ],
+        "values": [
+            0.0308
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/GBP:SONIA",
+        "times": [
+            0
+        ],
+        "values": [
+            0.0308
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/EUR-USD",
+        "times": [
+            -0.25,
+            -0.12,
+            0.0
+        ],
+        "values": [
+            1.07,
+            1.07,
+            1.07
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/GBP-USD",
+        "times": [
+            -0.25,
+            -0.12,
+            0.0
+        ],
+        "values": [
+            1.09,
+            1.12,
+            1.2
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/EUHICP",
+        "times": [
+            0
+        ],
+        "values": [
+            1
+        ]
+    },
+    {
+        "typename": "DiffFusion.ForwardFlatParameter",
+        "constructor": "forward_flat_parameter",
+        "alias": "pa/NIK-FUT",
+        "times": [
+            0
+        ],
+        "values": [
+            23776.5
+        ]
+    }
+]
