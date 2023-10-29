@@ -25,10 +25,10 @@ using HTTP
 using Sockets
 
 router = DiffFusionServer.router().router
-server = HTTP.serve!(router, Sockets.localhost, 80)
+server = HTTP.serve!(router, Sockets.localhost, 2024)
 ```
 
-Now you can visit the end point [localhost](http://localhost/api/v1/info) with your browser. This should display an info text of the API.
+Now you can visit the end point [localhost:2024](http://localhost:2024/api/v1/info) with your browser. This should display an info text of the API.
 
 Alternatively, you can query the server via `HTTP` in Julia.
 
