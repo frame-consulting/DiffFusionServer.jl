@@ -4,6 +4,9 @@ using DiffFusion
 using HTTP
 using JSON3
 using OrderedCollections
+using Sockets
+
+include("client/Requests.jl")
 
 include("server/Config.jl")
 include("server/Errors.jl")

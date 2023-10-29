@@ -3,6 +3,7 @@ using Test
 
 @testset "Test client methods." begin
 
-    # Write your tests here.
+    include("requests.jl")
+    include("bulk_requests.jl")
 
 end
