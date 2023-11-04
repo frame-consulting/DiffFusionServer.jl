@@ -59,6 +59,12 @@ The image can be build via
 docker build --pull --rm -t diff-fusion-server:latest .
 ```
 
+A container can be started from the built image via
+
+    docker run --rm -it -p 2024:2024 diff-fusion-server:latest --port 2024
+
+The server is listening on port 2024. If you can access the [info page](http://localhost:2024/api/v1/info) via browser then everything is set up.
+
 ### Pull Docker Image
 
 Alternatively, you can pull a pre-build Docker image via
@@ -67,11 +73,9 @@ Alternatively, you can pull a pre-build Docker image via
 docker pull sschlenkrich/diff-fusion-server:latest
 ```
 
-### Start Docker Container
+A container can be started from the pulled image via
 
-Once the image is available, a container can be started via
-
-    docker run --rm -it -p 2024:2024 diff-fusion-server:latest --port 2024
+    docker run --rm -it -p 2024:2024 sschlenkrich/diff-fusion-server:latest --port 2024
 
 The server is listening on port 2024. If you can access the [info page](http://localhost:2024/api/v1/info) via browser then everything is set up.
 
