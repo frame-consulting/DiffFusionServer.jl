@@ -4,7 +4,7 @@ In this folder we give examples how to use DiffFusionServer.
 
 The examples can be run and on *MyBinder.org*.
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/frame-consulting/DiffFusionServer.jl/wip/binder?labpath=examples)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/frame-consulting/DiffFusionServer.jl/v0.0.2?labpath=examples)
 
 ## Usage
 

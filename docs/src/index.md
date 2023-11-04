@@ -8,6 +8,8 @@ Documentation for [DiffFusionServer](https://github.com/frame-consulting/DiffFus
 
 ## Getting Started
 
+In this section, we document the usage of `DiffFusionServer` via Julia. Alternatively, you can use `DiffFusionServer` via [Docker](https://en.wikipedia.org/wiki/Docker_(software)) without the need to install Julia.
+
 The `DiffFusionServer` package uses `HTTP` and `Sockets` packages. These packages need to be added to the current project.
 
 ```
@@ -43,6 +45,35 @@ Finally, you can close the server via
 close(server)
 ```
 
+## Use Docker to Run the Server
+
+A convenient way to run the `DiffFusionServer` is by using [Docker](https://en.wikipedia.org/wiki/Docker_(software)). A Docker image can be build locally or obtained from Docker Hub.
+
+### Build Docker Image
+
+Download or clone the `DiffFusionServer` source code and go to the [`docker` folder](https://github.com/frame-consulting/DiffFusionServer.jl/tree/main/docker).
+
+The image can be build via
+
+```
+docker build --pull --rm -t diff-fusion-server:latest .
+```
+
+### Pull Docker Image
+
+Alternatively, you can pull a pre-build Docker image via
+
+```
+docker pull sschlenkrich/diff-fusion-server:latest
+```
+
+### Start Docker Container
+
+Once the image is available, a container can be started via
+
+    docker run --rm -it -p 2024:2024 diff-fusion-server:latest --port 2024
+
+The server is listening on port 2024. If you can access the [info page](http://localhost:2024/api/v1/info) via browser then everything is set up.
 
 ## API
 
@@ -98,3 +129,11 @@ DELETE: [api_path]/[version]/ops/
 
 - Retrieve 'alias' field from  request header and delete the object
   with given alias.
+
+## Using `DiffFusion.jl` via API
+
+The usage of the API is illustrated by Python and Julia notebooks in the [`examples` folder](https://github.com/frame-consulting/DiffFusionServer.jl/tree/main/examples).
+
+The notebooks can be run via [MyBinder.org](https://mybinder.org/) or locally.
+
+Additional examples are documented via the test suite.

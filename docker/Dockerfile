@@ -1,7 +1,7 @@
 FROM julia:latest
 
 RUN julia -e 'using Pkg; Pkg.add("ArgParse"); Pkg.add("HTTP"); Pkg.add("Sockets");'
-RUN julia -e 'using Pkg; Pkg.add(url="https://github.com/frame-consulting/DiffFusionServer.jl#v0.0.1");'
+RUN julia -e 'using Pkg; Pkg.add(url="https://github.com/frame-consulting/DiffFusionServer.jl#v0.0.2");'
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
