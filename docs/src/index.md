@@ -75,7 +75,7 @@ Once the image is available, a container can be started via
 
 The server is listening on port 2024. If you can access the [info page](http://localhost:2024/api/v1/info) via browser then everything is set up.
 
-## API
+## API Reference
 
 This is a summary of the API to serve DiffFusion functionality via HTTP.
 
@@ -134,6 +134,6 @@ DELETE: [api_path]/[version]/ops/
 
 The usage of the API is illustrated by Python and Julia notebooks in the [`examples` folder](https://github.com/frame-consulting/DiffFusionServer.jl/tree/main/examples).
 
-The notebooks can be run via [MyBinder.org](https://mybinder.org/) or locally.
+The notebooks can be run via [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/frame-consulting/DiffFusionServer.jl/v0.0.2?labpath=examples) or locally.
 
 Additional examples are documented via the test suite.
