@@ -147,7 +147,7 @@
     },
     {
         "typename": "DiffFusion.CorrelationHolder",
-        "constructor": "CorrelationHolder",
+        "constructor": "correlation_holder",
         "alias": "ch/STD",
         "correlations": {
             "EUR_f_1<>USD_f_1": 0.3,
