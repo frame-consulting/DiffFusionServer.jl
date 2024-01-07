@@ -8,7 +8,7 @@
 
 [![Coverage](https://codecov.io/gh/frame-consulting/DiffFusionServer.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/frame-consulting/DiffFusionServer.jl)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/frame-consulting/DiffFusionServer.jl/v0.0.2?labpath=examples)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/frame-consulting/DiffFusionServer.jl/v0.0.3?labpath=examples)
 
 The DiffFusionServer.jl package provides a REST API for the [DiffFusion.jl](https://github.com/frame-consulting/DiffFusion.jl) exposure simulation framework.
 
