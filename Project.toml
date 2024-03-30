@@ -5,6 +5,7 @@ version = "0.0.1"
 
 [deps]
 DiffFusion = "be7e520c-a8fa-4f26-8f65-6d6d1049182e"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
 JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
 OrderedCollections = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"

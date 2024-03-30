@@ -68,18 +68,33 @@ function api_post(req::HTTP.Request, d::AbstractDict)
         msg = "Store OrderedDict with alias " * alias * "."
         return HTTP.Response(_NO_HTTP_ERROR, JSON3.write(msg))
     end
-    @assert op==_BUILD_OP
-    local obj
-    try
-        obj = DiffFusion.deserialise(dict_obj, d)
-    catch e
-        return _error_build_object_fail(alias, e)
+    if op==_BUILD_OP
+        local obj
+        try
+            obj = DiffFusion.deserialise(dict_obj, d)
+        catch e
+            return _error_build_object_fail(alias, e)
+        end
+        # finally store object...
+        d[alias] = obj
+        # println(obj)
+        msg = "Store object with alias " * alias * " and type " * string(typeof(obj)) * "."
+        return HTTP.Response(_NO_HTTP_ERROR, JSON3.write(msg))
     end
-    # finally store object...
-    d[alias] = obj
-    # println(obj)
-    msg = "Store object with alias " * alias * " and type " * string(typeof(obj)) * "."
-    return HTTP.Response(_NO_HTTP_ERROR, JSON3.write(msg))
+    if op==_BUILD_ASYNC_OP
+        local obj
+        try
+            obj = remotecall(DiffFusion.deserialise, workers()[begin], dict_obj, d)
+        catch e
+            return _error_build_async_fail(alias, e)
+        end
+        # finally store object...
+        d[alias] = obj
+        # println(obj)
+        msg = "Store object with alias " * alias * " and type " * string(typeof(obj)) * "."
+        return HTTP.Response(_NO_HTTP_ERROR, JSON3.write(msg))
+    end
+
 end
 
 
@@ -300,8 +315,9 @@ function api_bulk_post(req::HTTP.Request, d::AbstractDict)
         if op==_COPY_OP
             d[alias] = dict_obj
             msg = "Store OrderedDict with alias " * alias * "."
-        else
-            @assert op==_BUILD_OP
+            msg_list = vcat(msg_list, [msg])
+        end
+        if op==_BUILD_OP
             local obj
             try
                 obj = DiffFusion.deserialise(dict_obj, d)
@@ -311,8 +327,20 @@ function api_bulk_post(req::HTTP.Request, d::AbstractDict)
             # finally store object...
             d[alias] = obj
             msg = "Store object with alias " * alias * " and type " * string(typeof(obj)) * "."
+            msg_list = vcat(msg_list, [msg])
         end
-        msg_list = vcat(msg_list, [msg])
+        if op==_BUILD_ASYNC_OP
+            local obj
+            try
+                obj = remotecall(DiffFusion.deserialise, workers()[begin], dict_obj, d)
+            catch e
+                return _error_build_async_fail(alias, e)
+            end
+            # finally store object...
+            d[alias] = obj
+            msg = "Store object with alias " * alias * " and type " * string(typeof(obj)) * "."
+            msg_list = vcat(msg_list, [msg])
+        end
     end
     return HTTP.Response(_NO_HTTP_ERROR, JSON3.write(msg_list))
 end

@@ -112,3 +112,13 @@ function _error_bulk_element_list_not_found(elem::Any)
     msg = "Request body element list is not available:\n" * string(elem)
     return HTTP.Response(220, JSON3.write(msg))
 end
+
+"""
+    _error_build_async_fail(alias::AbstractString, e::Exception)
+
+Create an error response for a failing BUILD_ASYNC operation.
+"""
+function _error_build_async_fail(alias::AbstractString, e::Exception)
+    msg = "Cannot create Future object for alias " * alias * ".\n" * string(e)
+    return HTTP.Response(221, JSON3.write(msg))
+end
