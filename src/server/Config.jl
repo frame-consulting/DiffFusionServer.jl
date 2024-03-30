@@ -1,7 +1,8 @@
 
 const _COPY_OP = "COPY"
 const _BUILD_OP = "BUILD"
-const _OPERATIONS = (_COPY_OP, _BUILD_OP)
+const _BUILD_ASYNC_OP = "BUILD_ASYNC"
+const _OPERATIONS = (_COPY_OP, _BUILD_OP, _BUILD_ASYNC_OP)
 
 const _INFO_END_POINT = "/info"
 const _ALIASES_END_POINT = "/aliases"

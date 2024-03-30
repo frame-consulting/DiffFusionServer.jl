@@ -1,6 +1,7 @@
 module DiffFusionServer
 
 using DiffFusion
+using Distributed
 using HTTP
 using JSON3
 using OrderedCollections
