@@ -12,7 +12,7 @@ OrderedCollections = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 Sockets = "6462fe0b-24de-5631-8697-dd941f90decc"
 
 [compat]
-DiffFusion = "0.4"
+DiffFusion = "0.5"
 HTTP = "1"
 JSON3 = "1"
 OrderedCollections = "1"
