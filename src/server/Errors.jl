@@ -29,7 +29,7 @@ end
 
 Create error response for unknown server operation in http header.
 
-Allowed operations are COPY and BUILD.
+Allowed operations are COPY and BUILD and BUILD_ASYNC.
 """
 function _error_operation_not_implemented(op::AbstractString)
     HTTP.Response(213, JSON3.write("Operation " * op * " is not implemented."))
@@ -122,3 +122,26 @@ function _error_build_async_fail(alias::AbstractString, e::Exception)
     msg = "Cannot create Future object for alias " * alias * ".\n" * string(e)
     return HTTP.Response(221, JSON3.write(msg))
 end
+
+"""
+    _error_option_not_implemented(option_field::AbstractString, option_value::AbstractString)
+
+Create error response for unknown server option/value combination in http header.
+"""
+function _error_option_not_implemented(option_field::AbstractString, option_value::AbstractString)
+    HTTP.Response(222, JSON3.write("Option " * option_field * " with value " * option_value * " is not implemented."))
+end
+
+
+## Use standard error codes in below error functions
+
+"""
+    _error_server_is_busy()
+
+Create an error response for a rejected (POST) operation due to *is_busy* flag.
+"""
+function _error_server_is_busy()
+    msg = "Cannot process POST request because server is flagged as busy."
+    return HTTP.Response(429, JSON3.write(msg))
+end
+
