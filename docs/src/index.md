@@ -138,6 +138,6 @@ DELETE: [api_path]/[version]/ops/
 
 The usage of the API is illustrated by Python and Julia notebooks in the [`examples` folder](https://github.com/frame-consulting/DiffFusionServer.jl/tree/main/examples).
 
-The notebooks can be run via [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/frame-consulting/DiffFusionServer.jl/v0.0.6?labpath=examples) or locally.
+The notebooks can be run via [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/frame-consulting/DiffFusionServer.jl/v0.0.7?labpath=examples) or locally.
 
 Additional examples are documented via the test suite.
