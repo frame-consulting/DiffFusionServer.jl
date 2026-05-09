@@ -60,7 +60,7 @@ end
         headers,
         JSON3.write(body),
     )
-    @test JSON3.read(resp.body) == "Store object with alias ts/EUR and type DiffFusion.FlatForward."
+    @test JSON3.read(resp.body) == "Store object with alias ts/EUR and type DiffFusion.FlatForward{Float64}."
     #
     resp = HTTP.get("http://localhost:2024/api/v1/aliases")
     body = JSON3.read(resp.body)
@@ -146,8 +146,8 @@ end
     )
     @test resp.status == 200
     @test JSON3.read(resp.body) == [
-        "Store object with alias yts/1 and type DiffFusion.FlatForward.",
-        "Store object with alias yts/2 and type DiffFusion.FlatForward."
+        "Store object with alias yts/1 and type DiffFusion.FlatForward{Float64}.",
+        "Store object with alias yts/2 and type DiffFusion.FlatForward{Float64}.",
     ]
     #
     headers = [ "op" => "copy",]
