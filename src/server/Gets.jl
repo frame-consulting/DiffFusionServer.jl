@@ -45,8 +45,12 @@ function api_get(
         return _error_operation_not_implemented(op)
     end
     obj = repository[alias]
+    # make sure a Future is ready
+    if op == _BUILD_ASYNC_OP && isa(obj, Future) && !isready(obj)
+        return _error_future_not_ready(alias)
+    end
     local out_obj
-    if op==_BUILD_OP
+    if op in (_BUILD_OP, _BUILD_ASYNC_OP)
         try
             out_obj = DiffFusion.serialise(obj)
         catch e
