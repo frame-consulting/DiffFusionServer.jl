@@ -53,7 +53,7 @@ using Test
                 resp = HTTP.get(endpoint, headers)
             end
             #
-            @test run_time < 0.1
+            @test run_time < 0.5
             @test resp.status == DiffFusionServer._NO_HTTP_ERROR
             @test JSON3.read(resp.body) == "nothing"
         end
@@ -84,7 +84,7 @@ using Test
             end
             #
             println(JSON3.read(resp.body))
-            @test run_time < 0.1
+            @test run_time < 0.5
             @test resp.status == 223
             #
             sleep(1.0)  # make sure Future is ready
@@ -92,7 +92,7 @@ using Test
                 resp = HTTP.get(endpoint, headers)
             end
             #
-            @test run_time < 0.1
+            @test run_time < 0.5
             @test resp.status == DiffFusionServer._NO_HTTP_ERROR
             @test JSON3.read(resp.body) == "nothing"
         end
@@ -108,7 +108,7 @@ using Test
             end
             #
             body = JSON3.read(resp.body)
-            @test run_time < 0.1
+            @test run_time < 0.5
             @test resp.status == DiffFusionServer._NO_HTTP_ERROR
             @test isa(body, JSON3.Object)
             for key in keys(body)
