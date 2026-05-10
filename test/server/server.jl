@@ -7,5 +7,6 @@ using Test
     include("router.jl")
     include("example.jl")
     include("example_async.jl")
+    include("get_asynch.jl")
 
 end

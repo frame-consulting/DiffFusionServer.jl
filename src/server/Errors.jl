@@ -132,8 +132,13 @@ function _error_option_not_implemented(option_field::AbstractString, option_valu
     HTTP.Response(222, JSON3.write("Option " * option_field * " with value " * option_value * " is not implemented."))
 end
 
+function _error_future_not_ready(alias::AbstractString)
+    msg = "Future object for alias " * alias * " is not ready."
+    return HTTP.Response(223, JSON3.write(msg))
+end
 
-## Use standard error codes in below error functions
+
+# Use standard error codes in below error functions
 
 """
     _error_server_is_busy()
