@@ -1,6 +1,6 @@
 name = "DiffFusionServer"
 uuid = "117087b2-87f9-4369-a30d-c1fcf58cf77c"
-version = "0.0.7"
+version = "0.0.8"
 authors = ["Sebastian Schlenkrich <sebastian.schlenkrich@frame-consult.de> and contributors"]
 
 [deps]
